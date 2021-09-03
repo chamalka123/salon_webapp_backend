@@ -1,5 +1,5 @@
 const router = require("express").Router();
-let product = require("../models/product");
+let product = require("../models/productModel");
 
 router.route("/add").post((req,res)=>{
 
