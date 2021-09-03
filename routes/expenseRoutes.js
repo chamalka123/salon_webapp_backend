@@ -1,7 +1,29 @@
 const router = require("express").Router();
-let expense = require("../models/expenseModel");
+const expense = require("../models/expenseModel");
 
-router.route("/add").post((req, res)=>{
+router.post("/", function (req, res) {
+
+    const newExpense = new Expense({
+        date: req.body.date,
+        income_category: req.body.income_category,
+        description: req.body.description,
+        amount: req.body.amount 
+    });
+
+    newExpense.save(function(err){
+        if(!err){
+            res.send(err);
+        }
+    });
+  });
+
+  module.exports = router;
+
+
+
+
+
+/*router.route("/add").post((req, res)=>{
     const {date, income_category, description, amount} = req.body;
 
     const newExpense = new expense({
@@ -69,6 +91,4 @@ router.route("/get/:id").get(async (req, res) => {
         console.log(err.message);
         res.status(500).send({status: "Error with get expense",error: err.message});
     })
-})
-
-module.exports = router;
+})*/
