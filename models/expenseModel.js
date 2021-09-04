@@ -2,23 +2,12 @@ const mongoose = require('mongoose');
 
 const expenseSchema = new mongoose.Schema({
 
-    date: {
-      type: Date,
-      require: true
-    },
-    income_category: {
-      type: String,
-      require: true
-    },
-    description: {
-      type: String,
-      require: true
-    },
-    amount: {
-      type: Number,
-      require: true
-    }
+    date: Date,
+    income_category: String,
+    description: String,
+    amount: Number
   });
+
 
 const expense = mongoose.model("expense",expenseSchema);
 
