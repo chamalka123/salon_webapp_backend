@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const employee = require("../models/employeeModels");
-let product = require("../models/employeeModels");
+
+let employee = require("../models/employeeModels");
 
 router.route("/add").post((req,res)=>{
 
@@ -11,7 +11,7 @@ router.route("/add").post((req,res)=>{
     const gender = req.body.gender;
     const jobTitle = req.body.jobTitle;
     const billableHours = req.body.billableHours;
-    const availableHours = req.body.availableHoursHours;
+    const availableHours = req.body.availableHours;
 
     const newemployee = new employee({
 
@@ -84,7 +84,7 @@ router.route("/get/:id").get(async (req, res) => {
     let userId = req.params.id;
     const user = await employee.findById(userId)
     .then((employee) => {
-        res.status(200).send({status: "User fetched", product});
+        res.status(200).send({status: "User fetched", employee});
     }).catch((err) => {
         console.log(err.message);
         res.status(500).send({status: "Error with get user",error: err.message});
