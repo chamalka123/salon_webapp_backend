@@ -1,6 +1,18 @@
 const router = require("express").Router();
 const expense = require("../models/expenseModel");
 
+//getting current date
+/*let day = Date.now();
+
+let date_ob = new Date(day);
+let date = date_ob.getDate();
+let month = date_ob.getMonth() + 1;
+let year = date_ob.getFullYear();
+
+// YYYY-MM-DD format
+let currentDate = year + "-" + month + "-" + date;*/
+
+
 router.route("/add").post((req, res)=>{
     const {date, income_category, description, amount} = req.body;
 
@@ -10,14 +22,16 @@ router.route("/add").post((req, res)=>{
         description,
         amount
     })
-    newExpense.save().then(() => {
-        res.json("new expense added")
-    }).catch((err) => {
-        console.log(err);
+    newExpense.save(function(err){
+        if(!err){
+            res.send("sucessfully added a new expense.");
+        }else{
+            res.send(err);
+        }
     })
 })
 
-router.route("/").get((req,res)=>{
+/*router.route("/").get((req,res)=>{
 
     expense.find().then((expense)=>{
         res.json(expense)
@@ -69,5 +83,5 @@ router.route("/get/:id").get(async (req, res) => {
         console.log(err.message);
         res.status(500).send({status: "Error with get expense",error: err.message});
     })
-})
+})*/
 module.exports = router;
