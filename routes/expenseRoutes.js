@@ -22,10 +22,12 @@ router.route("/add").post((req, res)=>{
         description,
         amount
     })
-    newExpense.save().then(() => {
-        res.json("new expense added")
-    }).catch((err) => {
-        console.log(err);
+    newExpense.save(function(err){
+        if(!err){
+            res.send("sucessfully added a new expense.");
+        }else{
+            res.send(err);
+        }
     })
 })
 
