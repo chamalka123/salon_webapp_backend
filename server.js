@@ -38,6 +38,10 @@ app.use("/employee", employeeRouter);
 
 
 
+//import product route
+const productRouter = require("./routes/productRoutes.js");
+app.use("/product", productRouter);
+
 app.listen(PORT, () => {
     console.log(`server is running on port ${PORT}`);
 })
