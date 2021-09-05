@@ -13,7 +13,7 @@ const employeeSchema = new Schema({
         required: true
     },
     age : {
-        type: Number,
+        type: String,
         required: true
     },
     contactNumber: {
@@ -30,11 +30,11 @@ const employeeSchema = new Schema({
         required: true
     },
     billableHours: {
-        type: Number,
+        type: String,
         required: true
     },
-    availablehours : {
-        type: Number,
+    availableHours : {
+        type: String,
         required: true
     }
     

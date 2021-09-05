@@ -32,6 +32,11 @@ connection.once("open", () => {
 //import expense route
 const expenseRouter = require("./routes/expenseRoutes.js");
 app.use("/expense", expenseRouter);
+//import employee route
+const employeeRouter = require("./routes/employeeRoutes.js");
+app.use("/employee", employeeRouter);
+
+
 
 app.listen(PORT, () => {
     console.log(`server is running on port ${PORT}`);
