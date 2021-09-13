@@ -13,14 +13,13 @@ router.route("/").get((req,res)=>{
 
 /*insert new budjet plans*/
 router.route("/add").post((req, res)=>{
-    const {month, description, estimate, actual, total, balance} = req.body;
+    const {month, description, estimate, actual, balance} = req.body;
 
     const newBudgetPlan = new budgetPlan({
         month,
         description,
         estimate,
         actual,
-        total,
         balance
     })
     newBudgetPlan.save(function(err){
@@ -44,3 +43,4 @@ router.route("/delete/:id").delete(async (req,res) => {
     })
 
 })
+module.exports = router;

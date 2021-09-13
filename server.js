@@ -46,13 +46,13 @@ app.use("/employee", employeeRouter);
 const paymentRouter = require("./routes/paymentRoutes.js");
 app.use("/payment", paymentRouter);
 
-
-
+//import budget planning route
+const budgetPlanRouter = require("./routes/budgetPlanRoutes.js");
+app.use("/budgetplan", budgetPlanRouter);
 
 //import product route
 const productRouter = require("./routes/productRoutes.js");
 app.use("/product", productRouter);
-
 
 app.listen(PORT, () => {
     console.log(`server is running on port ${PORT}`);

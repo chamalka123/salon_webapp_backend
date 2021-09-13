@@ -4,9 +4,8 @@ const budgetPlanSchema = new mongoose.Schema({
 
     month: String,
     description: String,
-    estimate: String,
-    actual: String,
-    total: Number,
+    estimate: Number,
+    actual: Number,
     balance: Number
   });
 
