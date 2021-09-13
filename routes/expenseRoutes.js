@@ -52,6 +52,7 @@ router.route("/update/:id").put(async (req,res) => {
 
 })
 
+/*delete expense*/
 router.route("/delete/:id").delete(async (req,res) => {
     let expenseId = req.params.id;
 
