@@ -69,7 +69,7 @@ router.route("/delete/:id").delete(async (req,res) => {
 /*read specific exppense by its id*/
 router.route("/get/:id").get(async (req, res) => {
     let userId = req.params.id;
-    const user = await expense.findById(userId)
+    const exp = await expense.findById(userId)
     .then((expense) => {
         res.status(200).send({status: "Expense fetched", expense});
     }).catch((err) => {

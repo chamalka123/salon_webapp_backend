@@ -50,6 +50,10 @@ app.use("/payment", paymentRouter);
 const budgetPlanRouter = require("./routes/budgetPlanRoutes.js");
 app.use("/budgetplan", budgetPlanRouter);
 
+//import ledger route
+const ledgerRouter = require("./routes/ledgerRoutes.js");
+app.use("/ledger", ledgerRouter);
+
 //import product route
 const productRouter = require("./routes/productRoutes.js");
 app.use("/product", productRouter);

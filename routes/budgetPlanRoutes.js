@@ -34,7 +34,7 @@ router.route("/add").post((req, res)=>{
 router.route("/delete/:id").delete(async (req,res) => {
     let budgetPlanId = req.params.id;
 
-    await expense.findByIdAndDelete(budgetPlanId)
+    await budgetPlan.findByIdAndDelete(budgetPlanId)
     .then(() => {
         res.send("Budjet Plan deleted");
     }).catch(() => {
