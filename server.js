@@ -30,10 +30,18 @@ connection.once("open", () => {
 //import expense route
 const expenseRouter = require("./routes/expenseRoutes.js");
 app.use("/expense", expenseRouter);
+//import feedback route
+const feedbackRouter = require("./routes/feedbackRoutes.js");
+app.use("/feedback", feedbackRouter);
+
+
+//import appointment route
+const appointmentRouter = require("./routes/appointmentRoutes.js");
+app.use("/appointment", appointmentRouter);
 
 // import category route
-const categoryRouter = require("./routes/categoryRoutes.js");
-app.use("/category", categoryRouter);
+//const categoryRouter = require("./routes/categoryRoutes.js");
+//app.use("/category", categoryRouter);
 // import service route
 const serviceRouter = require("./routes/serviceRouter.js");
 app.use("/service", serviceRouter);
@@ -42,12 +50,22 @@ app.use("/service", serviceRouter);
 const employeeRouter = require("./routes/employeeRoutes.js");
 app.use("/employee", employeeRouter);
 
+
+//import employeeSalary route
+const employeeSalaryRouter = require("./routes/employeeSalaryRoutes.js");
+app.use("/employeeSalary", employeeSalaryRouter);
+
 //import payment route
 const paymentRouter = require("./routes/paymentRoutes.js");
 app.use("/payment", paymentRouter);
 
+//import budget planning route
+const budgetPlanRouter = require("./routes/budgetPlanRoutes.js");
+app.use("/budgetplan", budgetPlanRouter);
 
-
+//import ledger route
+const ledgerRouter = require("./routes/ledgerRoutes.js");
+app.use("/ledger", ledgerRouter);
 
 //import product route
 const productRouter = require("./routes/productRoutes.js");

@@ -29,6 +29,7 @@ const employeeSchema = new Schema({
         type: String,
         required: true
     },
+    
     billableHours: {
         type: String,
         required: true
