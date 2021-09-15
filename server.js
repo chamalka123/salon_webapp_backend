@@ -36,6 +36,9 @@ app.use("/expense", expenseRouter);
 const employeeRouter = require("./routes/employeeRoutes.js");
 app.use("/employee", employeeRouter);
 
+//import employeeSalary route
+const employeeSalaryRouter = require("./routes/employeeSalaryRoutes.js");
+app.use("/employeeSalary", employeeSalaryRouter);
 
 
 //import product route

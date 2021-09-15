@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const employeeSchema = new Schema({
+const employeeSalarySchema = new Schema({
 
     empId : {
         type : String,
@@ -12,29 +12,32 @@ const employeeSchema = new Schema({
         type: String,
         required: true
     },
-    age : {
-        type: String,
-        required: true
-    },
-    contactNumber: {
-        type: String,
-        required: true
-    },
-    gender: {
-        type: String,
-        required: true
-    },
-
     jobTitle : {
         type: String,
         required: true
     },
-    
-    billableHours: {
+    basicSalary: {
         type: String,
         required: true
     },
-    availableHours : {
+    month: {
+        type: String,
+        required: true
+    },
+
+    payOTRate : {
+        type: String,
+        required: true
+    },
+    payOTHours : {
+        type: String,
+        required: true
+    },
+    deductions: {
+        type: String,
+        required: true
+    },
+    totalSalary : {
         type: String,
         required: true
     }
@@ -42,6 +45,6 @@ const employeeSchema = new Schema({
 
 }); 
 
-const employee = mongoose.model("employee",employeeSchema);
+const employeeSalary = mongoose.model("employeeSalary",employeeSalarySchema);
 
-module.exports = employee;
+module.exports = employeeSalary;
