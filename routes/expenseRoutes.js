@@ -1,55 +1,48 @@
 const router = require("express").Router();
 const expense = require("../models/expenseModel");
 
-//getting current date
-/*let day = Date.now();
-
-let date_ob = new Date(day);
-let date = date_ob.getDate();
-let month = date_ob.getMonth() + 1;
-let year = date_ob.getFullYear();
-
-// YYYY-MM-DD format
-let currentDate = year + "-" + month + "-" + date;*/
-
-
-router.route("/add").post((req, res)=>{
-    const {date, income_category, description, amount} = req.body;
-
-    const newExpense = new expense({
-        date,
-        income_category,
-        description,
-        amount
-    })
-    newExpense.save().then(() => {
-        res.json("new expense added")
-    }).catch((err) => {
-        console.log(err);
-    })
-})
-
-/*router.route("/").get((req,res)=>{
+/*read expenses*/
+router.route("/").get((req,res)=>{
 
     expense.find().then((expense)=>{
         res.json(expense)
     }).catch((err)=>{
-        console.log(err)
+        res.send(err);
     })
 })
 
+/*insert new expense*/
+router.route("/add").post((req, res)=>{
+    const {date, expenseCategory, description, amount} = req.body;
+
+    const newExpense = new expense({
+        date,
+        expenseCategory,
+        description,
+        amount
+    })
+    newExpense.save(function(err){
+        if(!err){
+            res.send("sucessfully added a new expense.");
+        }else{
+            res.send(err);
+        }
+    })
+})
+
+/*update specific expense*/
 router.route("/update/:id").put(async (req,res) => {
-    let userId = req.params.id;
-    const {date, income_category, description, amount} =req.body;
+    let expenseId = req.params.id;
+    const {date, expenseCategory, description, amount} =req.body;
 
     const updateexpense = {
         date,
-        income_category,
+        expenseCategory,
         description,
         amount
     }
 
-    const update = await expense.findByIdAndUpdate(userId,updateexpense)
+    const update = await expense.findByIdAndUpdate(expenseId,updateexpense)
     .then(() => {
     res.status(200).send({status: "Expense update"})
  }).catch((err) => {
@@ -59,27 +52,29 @@ router.route("/update/:id").put(async (req,res) => {
 
 })
 
+/*delete expense*/
 router.route("/delete/:id").delete(async (req,res) => {
-    let userId = req.params.id;
+    let expenseId = req.params.id;
 
-    await expense.findByIdAndDelete(userId)
+    await expense.findByIdAndDelete(expenseId)
     .then(() => {
-        res.status(200).send({status: "User delete"});
+        res.status(200).send({status: "Expense delete"});
     }).catch(() => {
         console.log(err.message);
-        res.status(500).send({status: "Error with delete user", error: err.message})
+        res.status(500).send({status: "Error with delete Expense", error: err.message})
     })
 
 })
 
+/*read specific exppense by its id*/
 router.route("/get/:id").get(async (req, res) => {
     let userId = req.params.id;
-    const user = await expense.findById(userId)
+    const exp = await expense.findById(userId)
     .then((expense) => {
         res.status(200).send({status: "Expense fetched", expense});
     }).catch((err) => {
         console.log(err.message);
         res.status(500).send({status: "Error with get expense",error: err.message});
     })
-})*/
+})
 module.exports = router;
