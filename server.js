@@ -71,6 +71,9 @@ app.use("/ledger", ledgerRouter);
 const productRouter = require("./routes/productRoutes.js");
 app.use("/product", productRouter);
 
+//import customer route
+const customerRouter = require("./routes/customerRoutes.js");
+app.use("/customer", customerRouter);
 
 app.listen(PORT, () => {
     console.log(`server is running on port ${PORT}`);
