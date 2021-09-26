@@ -3,7 +3,7 @@ let payment = require('../models/paymentModel');
 
 router.route("/add").post((req,res)=>{
 
-    console.log("requesttttttttttttttt", req.body);
+    console.log("request", req.body);
     
     const paymentId = req.body.paymentId;
     const discount =Number(req.body.discount);
