@@ -9,6 +9,8 @@ router.route("/add").post((req,res)=>{
     const discount =Number(req.body.discount);
     const paymentType =req.body.paymentType;
     const customername = req.body.customername;
+    const service_type=req.body.service_type;
+    const price=Number(req.body.price);
     const amount =Number(req.body.amount);
     const date =Date(req.body.date);
     const appointmentID =req.body.appointmentID;
@@ -19,6 +21,8 @@ router.route("/add").post((req,res)=>{
         discount,
         paymentType,
         customername,
+        service_type,
+        price,
         amount,
         date,
         appointmentID
@@ -47,13 +51,15 @@ router.route("/update/:id").put(async(req,res)=>{
     const Id =req.params.id;
     console.log("paymentID",Id);
     console.log("dataaa", req.body);
-    const{paymentId,discount,paymentType,customername,amount,date,appointmentID} = req.body;
+    const{paymentId,discount,paymentType,customername,service_type,price,amount,date,appointmentID} = req.body;
     
     const updatePayment ={
         paymentId,
         discount,
         paymentType,
         customername,
+        service_type,
+        price,
         amount,
         date,
         appointmentID
