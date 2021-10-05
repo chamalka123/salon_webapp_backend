@@ -42,4 +42,17 @@ router.route("/get/:id").get(async (req, res) => {
         res.status(500).send({status: "Error with get ledger",error: err.message});
     })
 })
+
+/*delete ledgers*/
+router.route("/delete/:id").delete(async (req,res) => {
+    let ledgerId = req.params.id;
+
+    await ledger.findByIdAndDelete(ledgerId)
+    .then(() => {
+        res.send("Ledger deleted");
+    }).catch(() => {
+        console.log(err.message);
+        res.status(500).send({status: "Error with delete Budjet Plan", error: err.message})
+    })
+})
 module.exports = router;

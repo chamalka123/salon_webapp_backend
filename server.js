@@ -30,6 +30,14 @@ connection.once("open", () => {
 //import expense route
 const expenseRouter = require("./routes/expenseRoutes.js");
 app.use("/expense", expenseRouter);
+//import feedback route
+const feedbackRouter = require("./routes/feedbackRoutes.js");
+app.use("/feedback", feedbackRouter);
+
+
+//import appointment route
+const appointmentRouter = require("./routes/appointmentRoutes.js");
+app.use("/appointment", appointmentRouter);
 
 // import category route
 //const categoryRouter = require("./routes/categoryRoutes.js");
@@ -66,6 +74,10 @@ app.use("/ledger", ledgerRouter);
 //import product route
 const productRouter = require("./routes/productRoutes.js");
 app.use("/product", productRouter);
+
+//import customer route
+const customerRouter = require("./routes/customerRoutes.js");
+app.use("/customer", customerRouter);
 
 app.listen(PORT, () => {
     console.log(`server is running on port ${PORT}`);
