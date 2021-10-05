@@ -4,41 +4,42 @@ const Schema = mongoose.Schema;
 
 const employeeSalarySchema = new Schema({
 
-    empId : {
+    
+    empName : {
+        //data type of the attribute
+        type : String,
+        //there should be a value to the name attribute in order to put inside database
+        required : true, //backend validation
+    },
+
+    empID : {
+        type : String,
+       
+    },
+
+    month : {
+        type : String,
+        required : true
+    },
+
+    salary : {
         type : String,
         required: true
     },
-    empName : {
-        type: String,
-        required: true
-    },
-    jobTitle : {
-        type: String,
-        required: true
-    },
-    basicSalary: {
-        type: String,
-        required: true
-    },
-    month: {
-        type: String,
-        required: true
-    },
 
-    payOTRate : {
-        type: String,
+    nopay : {
+        type : String,
         required: true
     },
-    payOTHours : {
-        type: String,
+    hours : {
+        type : String
+    },
+    advance : {
+        type : String,
         required: true
     },
-    deductions: {
-        type: String,
-        required: true
-    },
-    totalSalary : {
-        type: String,
+    amount : {
+        type : String,
         required: true
     }
     

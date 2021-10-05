@@ -47,6 +47,10 @@ app.use("/employee", employeeRouter);
 const employeeSalaryRouter = require("./routes/employeeSalaryRoutes.js");
 app.use("/employeeSalary", employeeSalaryRouter);
 
+//import employee attendence route
+const attendenceRouter = require("./routes/empAtRoutes.js");
+app.use("/attendence", attendenceRouter);
+
 //import payment route
 const paymentRouter = require("./routes/paymentRoutes.js");
 app.use("/payment", paymentRouter);
