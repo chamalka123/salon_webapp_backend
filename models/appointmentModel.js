@@ -6,7 +6,6 @@ const appointment = new Schema({
 
 appointment_id : {
     type : String,
-    required: true
 },
 customer_name : {
     type : String,
