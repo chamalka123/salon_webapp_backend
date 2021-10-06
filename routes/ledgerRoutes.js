@@ -55,4 +55,26 @@ router.route("/delete/:id").delete(async (req,res) => {
         res.status(500).send({status: "Error with delete Budjet Plan", error: err.message})
     })
 })
+
+/*update specific ledger*/
+router.route("/update/:id").put(async (req,res) => {
+    let ledgerId = req.params.id;
+    const { date, note, type, paymentMethod} =req.body;
+
+    const updateledger = {
+        date, 
+        note, 
+        type, 
+        paymentMethod
+    }
+
+    const update = await ledger.findByIdAndUpdate(ledgerId,updateledger)
+    .then(() => {
+    res.status(200).send({status: "Ledger Note update"})
+ }).catch((err) => {
+    console.log(err);
+    res.status(500).send({status: "Error with updating data"});
+ })
+
+})
 module.exports = router;
