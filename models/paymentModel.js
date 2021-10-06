@@ -8,6 +8,8 @@ const paymentSchema = new Schema ({
    discount: Number,
    paymentType: String,
    customername:String,
+   service_type:String,
+   price:Number,
    amount:Number,
    date:Date,
    appointmentID: String
