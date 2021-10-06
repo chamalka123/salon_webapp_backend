@@ -3,7 +3,7 @@ const Service = require("../models/serviceReportModel");
 exports.addServicereport = async (req, res) => {
  
     //constant variables for the attributes
-    const {serviceName, price,date,count,totalPrice} = req.body;
+    const {serviceName, price,date,count,totalPrice,month} = req.body;
    
     //object
     const newServicereport= new Service({
@@ -12,7 +12,8 @@ exports.addServicereport = async (req, res) => {
       price,
       date,
       count,
-      totalPrice
+      totalPrice,
+      month
     })
    
     //saving the object to the db 
@@ -34,3 +35,51 @@ exports.viewServicereport= async (req, res) => {
       res.status(500).json({ message: "Error with fetching", error: error.message });
     })
   }
+
+  //update 
+exports.updateServicereport= async (req, res) => { 
+  //fetch id from url
+  let reportid = req.params.id;
+ 
+  const {serviceName, price,date, count,totalPrice,month} = req.body;
+ 
+  const updateServicereport = {
+
+    serviceName,
+    price,
+    date,
+    count,
+    totalPrice,
+    month
+  }
+
+  //check whether there's for the ID
+  try {
+    await Service.findByIdAndUpdate(reportid, updateServicereport);
+
+    //sending the successful status
+    res.status(200).json({ success: true, message: "Updated" })
+  } catch (error) {
+    res.status(500).json({ message: "Error with Updating", error: error.message });
+  }
+}
+//view one
+exports.viewOneServicereport = async (req, res) => {
+  let reportid = req.params.id;
+
+  await Service.findById(reportid).then((serviceReport) => {
+    res.status(200).json({ status: "Service fetched", serviceReport });
+  }).catch((error) => {
+    res.status(500).json({ status: "Error with fetching", error: error.message });
+  })
+}
+//delete existing one
+exports.deleteService = async (req, res) => {
+  let serviceId = req.params.id;
+ 
+  await Service.findByIdAndDelete(serviceId).then(() => {
+    res.status(200).json({ status: "Service Deleted" });
+  }).catch((error) => {
+    res.status(500).json({ status: "Error with Deleting", error: error.message });
+  })
+}

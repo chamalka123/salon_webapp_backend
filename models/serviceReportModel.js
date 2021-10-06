@@ -25,6 +25,9 @@ const serviceReportSchema = new mongoose.Schema({
     totalPrice : {
         type: String,
         //required: true
+    },
+    month:{
+        type: String
     }
     
 
