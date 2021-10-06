@@ -4,7 +4,7 @@ const Service = require("../models/serviceModel");
 exports.addService = async (req, res) => {
  
   //constant variables for the attributes
-  const {service_id,title, price,duration,content,category} = req.body;
+  const {service_id,title, price,duration,content,category,images} = req.body;
  
   //object
   const newService= new Service({
