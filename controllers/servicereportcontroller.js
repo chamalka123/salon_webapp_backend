@@ -3,7 +3,7 @@ const Service = require("../models/serviceReportModel");
 exports.addServicereport = async (req, res) => {
  
     //constant variables for the attributes
-    const {serviceName, price,date,count,totalPrice} = req.body;
+    const {serviceName, price,date,count,totalPrice,month} = req.body;
    
     //object
     const newServicereport= new Service({
@@ -12,7 +12,8 @@ exports.addServicereport = async (req, res) => {
       price,
       date,
       count,
-      totalPrice
+      totalPrice,
+      month
     })
    
     //saving the object to the db 
