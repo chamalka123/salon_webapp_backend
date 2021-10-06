@@ -46,6 +46,10 @@ app.use("/appointment", appointmentRouter);
 const serviceRouter = require("./routes/serviceRouter.js");
 app.use("/service", serviceRouter);
 
+//import service report route
+const servicereportRouter = require("./routes/serviceReportRoutes.js");
+app.use("/servicereport", servicereportRouter);
+
 //import employee route
 const employeeRouter = require("./routes/employeeRoutes.js");
 app.use("/employee", employeeRouter);
@@ -54,6 +58,10 @@ app.use("/employee", employeeRouter);
 //import employeeSalary route
 const employeeSalaryRouter = require("./routes/employeeSalaryRoutes.js");
 app.use("/employeeSalary", employeeSalaryRouter);
+
+//import employee attendence route
+const attendenceRouter = require("./routes/empAtRoutes.js");
+app.use("/attendence", attendenceRouter);
 
 //import payment route
 const paymentRouter = require("./routes/paymentRoutes.js");

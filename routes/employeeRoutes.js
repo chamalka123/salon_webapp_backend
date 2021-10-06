@@ -5,24 +5,26 @@ let employee = require("../models/employeeModels");
 router.route("/add").post((req,res)=>{
 
     const empId = req.body.empId;
+    const nic = req.body.nic;
     const empName = req.body.empName;
     const age = req.body.age;
     const contactNumber = req.body.contactNumber;
     const gender = req.body.gender;
     const jobTitle = req.body.jobTitle;
-    const billableHours = req.body.billableHours;
-    const availableHours = req.body.availableHours;
+    const email = req.body.email;
+    
 
     const newemployee = new employee({
 
         empId,
+        nic,
         empName,
         age,
         contactNumber,
         gender,
         jobTitle,
-        billableHours,
-        availableHours
+        email,
+        
     })
 
     newemployee.save().then(()=>{
@@ -44,17 +46,18 @@ router.route("/").get((req,res)=>{
 
 router.route("/update/:id").put(async (req,res) => {
     let userId = req.params.id;
-    const {empId, empName, age, contactNumber, gender, jobTitle, billableHours, availableHours} =req.body;
+    const {empId, nic, empName, age, contactNumber, gender, jobTitle, email} =req.body;
 
     const updateemployee = {
         empId,
+        nic,
         empName,
         age,
         contactNumber,
         gender,
         jobTitle,
-        billableHours,
-        availableHours
+        email,
+        
     }
 
     const update = await employee.findByIdAndUpdate(userId,updateemployee)

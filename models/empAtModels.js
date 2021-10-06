@@ -2,40 +2,33 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const employeeSchema = new Schema({
+const attendenceSchema = new Schema({
 
-    empId : {
+    empID : {
         type : String,
        
     },
-
-    nic : {
-        type: String,
-        required: true
-    },
-
+    
     empName : {
         type: String,
         required: true
     },
-    age : {
-        type: String,
-        required: true
-    },
-    contactNumber: {
-        type: String,
-        required: true
-    },
-    gender: {
+    date : {
         type: String,
         required: true
     },
 
-    jobTitle : {
+
+
+    timeIn : {
         type: String,
         required: true
     },
-    email: {
+    timeOut: {
+        type: String,
+        required: true
+    },
+    totalHours: {
         type: String,
         required: true
     }
@@ -43,6 +36,6 @@ const employeeSchema = new Schema({
 
 }); 
 
-const employee = mongoose.model("employee",employeeSchema);
+const attendence = mongoose.model("attendence",attendenceSchema);
 
-module.exports = employee;
+module.exports = attendence;
