@@ -6,8 +6,14 @@ const employeeSchema = new Schema({
 
     empId : {
         type : String,
+       
+    },
+
+    nic : {
+        type: String,
         required: true
     },
+
     empName : {
         type: String,
         required: true
@@ -29,12 +35,7 @@ const employeeSchema = new Schema({
         type: String,
         required: true
     },
-    
-    billableHours: {
-        type: String,
-        required: true
-    },
-    availableHours : {
+    email: {
         type: String,
         required: true
     }
