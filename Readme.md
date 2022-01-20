@@ -7,7 +7,7 @@ Member 5 - IT20475536 - George S. D.
 Member 6 - IT20201678 - Sandarangi R.M.N.
 Member 7 - IT20786878 - Silva A. A. K.
 Member 8 - IT20238858 - Samarasinghe S.A.A.U.
-Front-end repository link- https://github.com/saduni-udeshika/salon-web-app-front-end.git
+Front-end repository link- https://github.com/chamalka123/salon_webapp_frontend.git
 Back-end repository link- https://github.com/saduni-udeshika/salon-system-back-end.git
 Brief Description of Project- 
 Salon Managment System
