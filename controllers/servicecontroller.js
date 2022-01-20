@@ -14,7 +14,8 @@ exports.addService = async (req, res) => {
     price,
     duration,
     content,
-    category
+    category,
+    images
   })
  
   //saving the object to the db 
@@ -41,7 +42,7 @@ exports.updateService= async (req, res) => {
   //fetch id from url
   let serviceId = req.params.id;
  
-  const {title, price,duration, content,category} = req.body;
+  const {title, price,duration, content,category,images} = req.body;
  
   const updateService = {
 
@@ -49,7 +50,8 @@ exports.updateService= async (req, res) => {
     price,
     duration,
     content,
-    category
+    category,
+    images
   }
 
   //check whether there's for the ID
